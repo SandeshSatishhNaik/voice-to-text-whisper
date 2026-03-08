@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Whisper model cache
+*.pt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Output files (transcriptions)
+output/
+
+# Audio/video test files (too large for git)
+*.mp3
+*.wav
+*.m4a
+*.flac
+*.ogg
+*.wma
+*.aac
+*.opus
+*.mp4
+*.mkv
+*.avi
+*.webm
