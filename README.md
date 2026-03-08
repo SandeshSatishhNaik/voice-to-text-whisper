@@ -27,7 +27,7 @@ A Python CLI tool for transcribing audio and video files to text using [OpenAI W
 
 ```bash
 # Clone the repository
-git clone https://github.com/Demonsandy9/voice-to-text-whisper.git
+git clone https://github.com/SandeshSatishhNaik/voice-to-text-whisper.git
 cd voice-to-text-whisper
 
 # Create virtual environment
