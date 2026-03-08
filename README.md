@@ -1,14 +1,17 @@
 # Voice-to-Text Transcription (Whisper)
 
-A Python CLI tool for transcribing audio and video files to text using [OpenAI Whisper](https://github.com/openai/whisper).
+A Python CLI tool for **real-time voice-to-text** and file-based transcription using [OpenAI Whisper](https://github.com/openai/whisper).
 
 ## Features
 
+- **Real-time microphone transcription** — speak and see text appear live
 - Transcribe audio/video files to text using OpenAI Whisper
 - Multiple output formats: **TXT**, **SRT** (subtitles), **JSON**
 - Support for many audio/video formats: MP3, WAV, M4A, FLAC, OGG, MP4, MKV, and more
 - Choose from 5 model sizes: `tiny`, `base`, `small`, `medium`, `large`
 - Auto-detect or manually specify language
+- Automatic silence detection — skips quiet segments
+- Saves full real-time transcript to file on exit
 - CLI-based — easy to use from terminal
 
 ## Supported Formats
@@ -45,7 +48,41 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Basic Usage
+### Real-Time Voice-to-Text (Microphone)
+
+```bash
+# Start real-time transcription (speak into your mic)
+python realtime_transcriber.py
+
+# Use a faster tiny model with English
+python realtime_transcriber.py --model tiny --language en
+
+# Shorter chunks for faster response (3 seconds)
+python realtime_transcriber.py --chunk 3 --language en
+
+# List available microphones
+python realtime_transcriber.py --list-devices
+
+# Use a specific microphone device
+python realtime_transcriber.py --device 1
+```
+
+Press **Ctrl+C** to stop. The full transcript is saved to `transcript_realtime.txt`.
+
+### Real-Time Options
+
+| Option | Description |
+|--------|-------------|
+| `--model`, `-m` | Model size: `tiny`, `base`, `small`, `medium`, `large` (default: `base`) |
+| `--language`, `-l` | Language code (e.g., `en`). Auto-detect if omitted |
+| `--chunk`, `-c` | Chunk duration in seconds (default: 5). Lower = faster |
+| `--device`, `-d` | Audio input device index |
+| `--threshold`, `-t` | Energy threshold to filter silence (default: 0.01) |
+| `--list-devices` | List available audio input devices |
+
+---
+
+### File-Based Transcription
 
 ```bash
 python transcriber.py audio.mp3
